@@ -51,18 +51,18 @@ public class Life {
 				.getSpawnVariable(this._context));
 
 		int[][] nextGenerationLifeGrid = new int[HEIGHT][WIDTH];
-
+		
 		for (int h = 0; h < HEIGHT; h++) {
 			for (int w = 0; w < WIDTH; w++) {
 				neighbours = calculateNeighbours(h, w);
 
 				if (_lifeGrid[h][w] != 0) {
 					if ((neighbours >= minimum) && (neighbours <= maximum)) {
-						nextGenerationLifeGrid[h][w] = neighbours;
+						nextGenerationLifeGrid[h][w] = _lifeGrid[h][w]++;
 					}
 				} else {
 					if (neighbours == spawn) {
-						nextGenerationLifeGrid[h][w] = spawn;
+						nextGenerationLifeGrid[h][w] = 1;
 					}
 				}
 			}

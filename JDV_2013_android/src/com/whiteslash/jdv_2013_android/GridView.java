@@ -2,6 +2,8 @@ package com.whiteslash.jdv_2013_android;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
@@ -52,10 +54,12 @@ public class GridView extends View implements View.OnTouchListener{
         // draw background
         canvas.drawRect(0, 0, displayWidth, displayHeight, background);
 
+        Color cellColor=new Color();
         // draw cells
         for (int h = 0; h < Life.HEIGHT; h++) {
             for (int w = 0; w < Life.WIDTH; w++) {
                 if (Life.getGrid()[h][w] != 0) {
+                	cell.setColor(Color.rgb(230, Math.max(295-Life.getGrid()[h][w]*100, 0), 50));
                     canvas.drawRect(
                         w * Life.CELL_SIZE, 
                         h * Life.CELL_SIZE, 
@@ -124,8 +128,8 @@ public class GridView extends View implements View.OnTouchListener{
 	};
 	
 	public void initLife(){
-		Log.i("white", Integer.toString(displayWidth));
-		Log.i("white", Integer.toString(displayHeight));
+		//Log.i("white", Integer.toString(displayWidth));
+		//Log.i("white", Integer.toString(displayHeight));
 		_life = new Life(_context, displayWidth, displayHeight);
 	}
 
