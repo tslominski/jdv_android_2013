@@ -10,7 +10,7 @@
     <string name="about_title">A propos du Jeu de la vie</string>
     <string name="about_text">
         Le jeu de la vie, est un jeu permettant de suivre l\'évolution de cellules.
-        Il a été crée en 1970 par John Horton Conway.
+        Il a été crée en 1970 par John Horton Conway.\n\n
         Développé par Mikaël B.
     </string>
     <string name="grid_title">Jeu de la vie</string>
