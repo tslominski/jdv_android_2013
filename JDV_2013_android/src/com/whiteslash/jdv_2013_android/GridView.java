@@ -2,13 +2,10 @@ package com.whiteslash.jdv_2013_android;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -48,24 +45,13 @@ public class GridView extends View implements View.OnTouchListener{
         Paint background = new Paint();
         background.setColor(getResources().getColor(R.color.background));
 
-        Paint cell = new Paint();
-        cell.setColor(getResources().getColor(R.color.cell));
-
         // draw background
         canvas.drawRect(0, 0, displayWidth, displayHeight, background);
-
-        Color cellColor=new Color();
         // draw cells
         for (int h = 0; h < Life.HEIGHT; h++) {
             for (int w = 0; w < Life.WIDTH; w++) {
-                if (Life.getGrid()[h][w] != 0) {
-                	cell.setColor(Color.rgb(230, Math.max(295-Life.getGrid()[h][w]*100, 0), 50));
-                    canvas.drawRect(
-                        w * Life.CELL_SIZE, 
-                        h * Life.CELL_SIZE, 
-                        (w * Life.CELL_SIZE) + (Life.CELL_SIZE -1),
-                        (h * Life.CELL_SIZE) + (Life.CELL_SIZE -1),
-                        cell);
+                if (Life.getGrid()[h][w].isVivant()) {
+                	Life.getGrid()[h][w].dessiner(canvas);
                 }
             }
         }

@@ -15,7 +15,7 @@
         android:dialogTitle="Maximum variable" 
         android:defaultValue="3" />
     <ListPreference android:key="SPAWN_VARIABLE"
-        android:title="Spawn variable"
+        android:title="Seuil de naissance"
         android:summary="Toute cellule morte avec N voisins commencera à vivre"
         android:entries="@array/population_options" 
         android:entryValues="@array/population_values"
