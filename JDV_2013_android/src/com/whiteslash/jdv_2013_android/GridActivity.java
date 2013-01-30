@@ -9,13 +9,18 @@ import android.view.MenuItem;
 
 public class GridActivity extends Activity {
 
+    private GridView _gridView;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid);
+        
+        _gridView = (GridView)findViewById(R.id.grid_view); 
+        _gridView.setMode(GridView.RUNNING);
     }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -32,5 +37,11 @@ public class GridActivity extends Activity {
                 return true;
         }
         return false;
+    }
+    
+    @Override
+    protected void onPause() {
+        super.onPause();
+        _gridView.setMode(GridView.PAUSE);
     }
 }
