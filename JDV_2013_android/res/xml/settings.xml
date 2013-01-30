@@ -30,5 +30,5 @@
     <CheckBoxPreference android:key="COLOR_CODING"
         android:title="@string/color_coding_title" 
         android:summary="@string/color_coding_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 </PreferenceScreen>

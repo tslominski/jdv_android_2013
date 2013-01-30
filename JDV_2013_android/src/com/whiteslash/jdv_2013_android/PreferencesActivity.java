@@ -15,6 +15,8 @@ public class PreferencesActivity extends PreferenceActivity {
     private static final String OPTION_SPAWN_DEFAULT = "3";
     private static final String OPTION_ANIMATION_SPEED = "ANIMATION_SPEED_VARIABLE";
     private static final String OPTION_ANIMATION_SPEED_DEFAULT = "3";
+    private static final String OPTION_COLOR="COLOR_CODING";
+    private static final Boolean OPTION_COLOR_DEFAULT=true;
     
     @SuppressWarnings("deprecation")
 	@Override
@@ -42,4 +44,10 @@ public class PreferencesActivity extends PreferenceActivity {
         return PreferenceManager.getDefaultSharedPreferences(context).
             getString(OPTION_ANIMATION_SPEED, OPTION_ANIMATION_SPEED_DEFAULT);
     }
+    
+    public static Boolean getColorCoding(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context).
+            getBoolean(OPTION_COLOR, OPTION_COLOR_DEFAULT);
+    }
+    
 }

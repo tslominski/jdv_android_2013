@@ -51,7 +51,7 @@ public class GridView extends View implements View.OnTouchListener{
         for (int h = 0; h < Life.HEIGHT; h++) {
             for (int w = 0; w < Life.WIDTH; w++) {
                 if (Life.getGrid()[h][w].isVivant()) {
-                	Life.getGrid()[h][w].dessiner(canvas);
+                	Life.getGrid()[h][w].dessiner(canvas, PreferencesActivity.getColorCoding(_context));
                 }
             }
         }

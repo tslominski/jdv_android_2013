@@ -31,22 +31,26 @@ public class Cellule {
 		_dureeDeVie++;
 	}
 
-	public void dessiner(Canvas canvas) {
+	public void dessiner(Canvas canvas,Boolean avecCouleur) {
 		Paint cell=new Paint();
-		if(_dureeDeVie==0)
-			cell.setColor(Color.rgb(54, 202, 47));//vert pâle
-		else if(_dureeDeVie==1)
-			cell.setColor(Color.rgb(172, 220, 29));//vert un peu jaune
-		else if(_dureeDeVie==2)
-			cell.setColor(Color.rgb(239, 234, 24));//jaune
-		else if(_dureeDeVie==3)
-			cell.setColor(Color.rgb(244, 176, 19));//jaune orange
-		else if(_dureeDeVie==4)
-			cell.setColor(Color.rgb(249, 115, 15));//orange
-		else if(_dureeDeVie==5)
-			cell.setColor(Color.rgb(251, 61, 13));//orange rouge
+		if(avecCouleur){
+			if(_dureeDeVie==0)
+				cell.setColor(Color.rgb(54, 202, 47));//vert pâle
+			else if(_dureeDeVie==1)
+				cell.setColor(Color.rgb(172, 220, 29));//vert un peu jaune
+			else if(_dureeDeVie==2)
+				cell.setColor(Color.rgb(239, 234, 24));//jaune
+			else if(_dureeDeVie==3)
+				cell.setColor(Color.rgb(244, 176, 19));//jaune orange
+			else if(_dureeDeVie==4)
+				cell.setColor(Color.rgb(249, 115, 15));//orange
+			else if(_dureeDeVie==5)
+				cell.setColor(Color.rgb(251, 61, 13));//orange rouge
+			else
+				cell.setColor(Color.rgb(255, 9, 9));//rouge petant
+		}
 		else
-			cell.setColor(Color.rgb(255, 9, 9));//rouge petant
+			cell.setColor(Color.rgb(44, 146, 14));//vert caca comme le logo
 		
 		canvas.drawRect(
                 _x * Life.CELL_SIZE, 
