@@ -33,12 +33,12 @@ public class Life {
 			}
 		}*/
 
-		/*
-		 * _lifeGrid[8][(WIDTH / 2) - 1] = 1; _lifeGrid[8][(WIDTH / 2) + 1] = 1;
-		 * _lifeGrid[9][(WIDTH / 2) - 1] = 1; _lifeGrid[9][(WIDTH / 2) + 1] = 1;
-		 * _lifeGrid[10][(WIDTH / 2) - 1] = 1; _lifeGrid[10][(WIDTH / 2)] = 1;
-		 * _lifeGrid[10][(WIDTH / 2) + 1] = 1;
-		 */
+		
+		  _lifeGrid[8][(WIDTH / 2) - 1] = 1; _lifeGrid[8][(WIDTH / 2) + 1] = 1;
+		  _lifeGrid[9][(WIDTH / 2) - 1] = 1; _lifeGrid[9][(WIDTH / 2) + 1] = 1;
+		  _lifeGrid[10][(WIDTH / 2) - 1] = 1; _lifeGrid[10][(WIDTH / 2)] = 1;
+		  _lifeGrid[10][(WIDTH / 2) + 1] = 1;
+		 
 	}
 
 	public void generateNextGeneration() {

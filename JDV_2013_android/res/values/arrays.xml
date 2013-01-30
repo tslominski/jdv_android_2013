@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string-array name="population_options">
-        <item>Zero live neighbours</item>
-        <item>One live neighbour</item>
-        <item>Two live neighbours</item>
-        <item>Three live neighbours</item>
-        <item>Four live neighbours</item>
-        <item>Five live neighbours</item>
-        <item>Six live neighbours</item>
+        <item>0 voisin vivant</item>
+        <item>1 voisin vivant</item>
+        <item>2 voisins vivants</item>
+        <item>3 voisins vivants</item>
+        <item>4 voisins vivants</item>
+        <item>5 voisins vivants</item>
+        <item>6 voisins vivants</item>
     </string-array>
     <string-array name="population_values">
         <item>0</item>
@@ -19,11 +19,11 @@
         <item>6</item>
     </string-array>
     <string-array name="animation_speed_options">
-       <item>Very slow</item>
-       <item>Slow</item>
+       <item>Très lent</item>
+       <item>Lent</item>
        <item>Normal</item>
-       <item>Fast</item>
-       <item>Very fast</item>
+       <item>Rapide</item>
+       <item>Très rapide</item>
     </string-array>
     <string-array name="animation_speed_values">
        <item>5</item>
