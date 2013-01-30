@@ -6,11 +6,11 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
-public class GridView extends View {
+public class GridView extends View implements View.OnTouchListener{
     
     public static final int PAUSE = 0;
     public static final int RUNNING = 1;
@@ -28,6 +28,7 @@ public class GridView extends View {
         super(context, attrs);
         _context=context;
         initGridView();
+        this.setOnTouchListener(this);
     }
     
     public void setMode(int mode) {
@@ -72,19 +73,19 @@ public class GridView extends View {
                 .getAnimationSpeed(this._context));
         switch (speedLevel) {
 		case 1:
-			_moveDelay=2000;
+			_moveDelay=50;
 			break;
 		case 2:
-			_moveDelay=750;
+			_moveDelay=100;
 			break;
 		case 3:
 			_moveDelay=250;
 			break;
 		case 4:
-			_moveDelay=100;
+			_moveDelay=750;
 			break;
 		case 5:
-			_moveDelay=50;
+			_moveDelay=2000;
 			break;
 
 		default:
@@ -126,6 +127,15 @@ public class GridView extends View {
 		Log.i("white", Integer.toString(displayWidth));
 		Log.i("white", Integer.toString(displayHeight));
 		_life = new Life(_context, displayWidth, displayHeight);
+	}
+
+	@Override
+	public boolean onTouch(View arg0, MotionEvent arg1) {
+		//Log.i("white", "X touché : " + arg1.getX());
+		//Log.i("white", "X touché : " + arg1.getY());
+		_life.createCell(arg1.getX(), arg1.getY());
+		this.invalidate();
+		return true;
 	}
     
 }
