@@ -17,8 +17,8 @@
 	<string name="settings_label">Options</string>
 	<string name="settings_title">Options du Jeu de la vie</string>
 	<string name="settings_shortcut">s</string>
-	<string name="color_coding_summary">Code couleur</string>
-	<string name="color_coding_title">Cochez pour que les cellules prennent une couleur en fonction de sa durée de vie.</string>
+	<string name="color_coding_title">Code couleur</string>
+	<string name="color_coding_summary">Cochez pour que les cellules prennent une couleur en fonction de sa durée de vie.</string>
 	<string name="underpopulation_title">Cellules minimum</string>
 	<string name="underpopulation_summary">Choisissez le nombre de cellules minimum pour qu\'une cellule vive.</string>
 </resources>

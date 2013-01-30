@@ -32,13 +32,13 @@ public class Life {
 		 * _lifeGrid[h][w]=(int) Math.round(Math.random()); } }
 		 */
 
-		_lifeGrid[8][(WIDTH / 2) - 1].naitre();
-		_lifeGrid[8][(WIDTH / 2) + 1].naitre();
-		_lifeGrid[9][(WIDTH / 2) - 1].naitre();
-		_lifeGrid[9][(WIDTH / 2) + 1].naitre();
-		_lifeGrid[10][(WIDTH / 2) - 1].naitre();
-		_lifeGrid[10][(WIDTH / 2)].naitre();
-		_lifeGrid[10][(WIDTH / 2) + 1].naitre();
+		_lifeGrid[(HEIGHT / 3) - 1][(WIDTH / 2) - 1].naitre();
+		_lifeGrid[(HEIGHT / 3) - 1][(WIDTH / 2) + 1].naitre();
+		_lifeGrid[HEIGHT / 3][(WIDTH / 2) - 1].naitre();
+		_lifeGrid[HEIGHT / 3][(WIDTH / 2) + 1].naitre();
+		_lifeGrid[(HEIGHT / 3) + 1][(WIDTH / 2) - 1].naitre();
+		_lifeGrid[(HEIGHT / 3) + 1][(WIDTH / 2)].naitre();
+		_lifeGrid[(HEIGHT / 3) + 1][(WIDTH / 2) + 1].naitre();
 
 	}
 
@@ -105,6 +105,20 @@ public class Life {
 	public void createCell(float x, float y) {
 		int h = (int) (y / Life.CELL_SIZE);
 		int w = (int) (x / Life.CELL_SIZE);
-		_lifeGrid[h][w].naitre();
+
+		_lifeGrid[h][w].naitre();// centrale
+
+		/*
+		 * //Création d'un bloc de 3*3 quand on clic sur l'ecran avec un trou au
+		 * milieu _lifeGrid[(h-1)%HEIGHT][w].naitre();
+		 * _lifeGrid[h-1%HEIGHT][(w+1)%WIDTH].naitre();
+		 * _lifeGrid[h][(w+1)%WIDTH].naitre();
+		 * _lifeGrid[(h+1)%HEIGHT][(w+1)%WIDTH].naitre();
+		 * _lifeGrid[(h+1)%HEIGHT][w].naitre();
+		 * _lifeGrid[(h+1)%HEIGHT][(w-1)%WIDTH].naitre();
+		 * _lifeGrid[h][w-1].naitre();
+		 * _lifeGrid[(h-1)%HEIGHT][(w-1)%WIDTH].naitre();
+		 */
+
 	}
 }
