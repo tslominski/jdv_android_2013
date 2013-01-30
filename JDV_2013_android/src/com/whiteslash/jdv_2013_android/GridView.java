@@ -6,6 +6,8 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 public class GridView extends View {
@@ -14,28 +16,17 @@ public class GridView extends View {
     public static final int RUNNING = 1;
     
     private Life _life;
+    private Context _context;
     
     private long _moveDelay = 250;
     
     private RefreshHandler _redrawHandler = new RefreshHandler();
-
-    class RefreshHandler extends Handler {
-
-        @Override
-        public void handleMessage(Message message) {
-            GridView.this.update();
-            GridView.this.invalidate();
-        }
-
-        public void sleep(long delayMillis) {
-            this.removeMessages(0);
-            sendMessageDelayed(obtainMessage(0), delayMillis);
-        }
-    };
+	private int displayHeight;
+	private int displayWidth;
 
     public GridView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        _life = new Life(context);
+        _context=context;
         initGridView();
     }
     
@@ -58,7 +49,7 @@ public class GridView extends View {
         cell.setColor(getResources().getColor(R.color.cell));
 
         // draw background
-        canvas.drawRect(0, 0, getWidth(), getHeight(), background);
+        canvas.drawRect(0, 0, displayWidth, displayHeight, background);
 
         // draw cells
         for (int h = 0; h < Life.HEIGHT; h++) {
@@ -77,10 +68,64 @@ public class GridView extends View {
     
     private void update() {
         _life.generateNextGeneration();
+        int speedLevel=Integer.parseInt(PreferencesActivity
+                .getAnimationSpeed(this._context));
+        switch (speedLevel) {
+		case 1:
+			_moveDelay=2000;
+			break;
+		case 2:
+			_moveDelay=750;
+			break;
+		case 3:
+			_moveDelay=250;
+			break;
+		case 4:
+			_moveDelay=100;
+			break;
+		case 5:
+			_moveDelay=50;
+			break;
+
+		default:
+			_moveDelay=250;
+			break;
+		}
         _redrawHandler.sleep(_moveDelay);
     }
     
     private void initGridView() {
         setFocusable(true);
     }
+    
+    
+    class RefreshHandler extends Handler {
+
+        @Override
+        public void handleMessage(Message message) {
+           GridView.this.update();
+            GridView.this.invalidate();
+        }
+
+        public void sleep(long delayMillis) {
+            this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    }
+
+
+	public void setWidth(int width) {
+		this.displayWidth=width;
+	}
+
+	public void setHeight(int height) {
+		this.displayHeight=height;		
+	};
+	
+	public void initLife(){
+		Log.i("white", Integer.toString(displayWidth));
+		Log.i("white", Integer.toString(displayHeight));
+		_life = new Life(_context, displayWidth, displayHeight);
+	}
+    
 }

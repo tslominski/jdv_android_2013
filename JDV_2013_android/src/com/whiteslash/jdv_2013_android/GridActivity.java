@@ -3,6 +3,8 @@ package com.whiteslash.jdv_2013_android;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,7 +19,15 @@ public class GridActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grid);
         
-        _gridView = (GridView)findViewById(R.id.grid_view); 
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int wwidth = displaymetrics.widthPixels;
+        
+        _gridView = (GridView)findViewById(R.id.grid_view);
+        _gridView.setWidth(wwidth);
+        _gridView.setHeight(height);   
+        _gridView.initLife();
         _gridView.setMode(GridView.RUNNING);
     }
     

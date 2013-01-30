@@ -5,14 +5,17 @@ import android.content.Context;
 public class Life {
 
     public static final int CELL_SIZE = 8;
-    public static final int WIDTH = 320 / CELL_SIZE;
-    public static final int HEIGHT = 480 / CELL_SIZE;
+    public static int WIDTH = 320 / CELL_SIZE;
+    public static int HEIGHT = 480 / CELL_SIZE;
 
-    private static final int[][] _lifeGrid = new int[HEIGHT][WIDTH];
+    private static int[][] _lifeGrid = new int[HEIGHT][WIDTH];
 
     private Context _context;
 
-    public Life(Context context) {
+    public Life(Context context, Integer width, Integer height) {
+    	WIDTH=width/CELL_SIZE;
+    	HEIGHT=height/CELL_SIZE;
+    	_lifeGrid = new int[HEIGHT][WIDTH];
         this._context = context;
         initializeGrid();
     }
